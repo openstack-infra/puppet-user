@@ -6,7 +6,7 @@ define user::virtual::disable(
 ) {
   $username = $title
   #1. Remove user
-  user { "${username}":
+  user { $username:
     ensure => absent,
   }
   #2. remove sshkeys file(s)
@@ -20,11 +20,11 @@ define user::virtual::disable(
   }
   #3. rm screen dir (just in case)
   file { "rm_screen_${username}":
-    ensure => absent,
-    path => "/var/run/screen/S-${username}",
+    ensure  => absent,
+    path    => "/var/run/screen/S-${username}",
     recurse => true,
-    purge => true,
-    force => true,
+    purge   => true,
+    force   => true,
   }
 }
 
