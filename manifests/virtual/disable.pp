@@ -26,5 +26,15 @@ define user::virtual::disable(
     purge   => true,
     force   => true,
   }
+  #4. rm .ssh directory
+  file { "rm_ssh_folder_${username}":
+    ensure => absent,
+    path   => "/home/${username}/.ssh",
+  }
+  #5. rm home directory
+  file { "rm_home_folder_${username}":
+    ensure => absent,
+    path   => "/home/${username}",
+  }
 }
 

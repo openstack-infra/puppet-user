@@ -33,6 +33,24 @@ define user::virtual::localuser(
     require    => Group[$title],
   }
 
+  # ensure that home exists with the right permissions
+  file { $home:
+    ensure => directory,
+    owner => $title,
+    group => $title,
+    mode => '0750',
+    require => [ User[$title], Group[$title] ],
+  }
+
+  # Ensure the .ssh directory exists with the right permissions
+  file { "${home}/.ssh":
+    ensure => directory,
+    owner => $title,
+    group => $title,
+    mode => '0700',
+    require => File[$home],
+  }
+
   ssh_authorized_key { $key_id:
     ensure  => present,
     key     => $sshkeys,
