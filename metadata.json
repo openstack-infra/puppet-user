@@ -1,5 +1,5 @@
 {
-  "name": "openstackci-user",
+  "name": "openstackinfra-user",
   "version": "0.0.1",
   "author": "OpenStack CI",
   "summary": "Puppet module for intelligent user mgmt",
