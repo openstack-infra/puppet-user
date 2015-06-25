@@ -8,7 +8,7 @@ define user::virtual::localuser(
   $gid,
   $groups     = [ 'sudo', 'admin', ],
   $sshkeys    = '',
-  $key_id     = '',
+  $key_id     = $title,
   $old_keys   = [],
   $shell      = '/bin/bash',
   $home       = "/home/${title}",
