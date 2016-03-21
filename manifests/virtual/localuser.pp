@@ -3,16 +3,16 @@
 # user::virtual::localuser['username']
 
 define user::virtual::localuser(
-  $realname,
-  $uid,
   $gid,
+  $realname,
   $sshkeys,
+  $uid,
   $groups     = [ 'sudo', 'admin', ],
+  $home       = "/home/${title}",
   $key_id     = $title,
+  $managehome = true,
   $old_keys   = [],
   $shell      = '/bin/bash',
-  $home       = "/home/${title}",
-  $managehome = true
 ) {
 
   group { $title:
