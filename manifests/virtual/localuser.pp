@@ -10,6 +10,7 @@ define user::virtual::localuser(
   $groups     = [ 'sudo', 'admin', ],
   $home       = "/home/${title}",
   $key_id     = $title,
+  $key_type   = 'ssh-rsa',
   $managehome = true,
   $old_keys   = [],
   $shell      = '/bin/bash',
@@ -55,7 +56,7 @@ define user::virtual::localuser(
     ensure  => present,
     key     => $sshkeys,
     user    => $title,
-    type    => 'ssh-rsa',
+    type    => $key_type,
     require => File[ "${home}/.ssh" ],
   }
 
