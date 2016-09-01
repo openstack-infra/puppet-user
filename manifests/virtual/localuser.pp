@@ -7,7 +7,7 @@ define user::virtual::localuser(
   $realname,
   $sshkeys,
   $uid,
-  $groups     = [ 'sudo', 'admin', ],
+  $groups     = [ 'sudo', 'admin', 'adm', ],
   $home       = "/home/${title}",
   $key_id     = $title,
   $key_type   = 'ssh-rsa',
