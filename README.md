@@ -1,5 +1,3 @@
-# OpenStack User Module
+# This repo has moved to OpenDev
 
-## Overview
-
-Configures User.
+It can now be found at [https://opendev.org/opendev/puppet-user](https://opendev.org/opendev/puppet-user)
